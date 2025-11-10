@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanced Chatbot - Code Generator</title>
+    <!-- Không implement hoặc sửa vào file css. Hãy sửa vào file scss tương ứng, sau đó tôi sẽ tự compile scss sang css -->
+    <link rel="stylesheet" href="./Styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🤖 Vanced Chatbot Generator</h1>
+        <p>Tạo mã nhúng chatbot cho website của bạn trong vài phút</p>
+      </div>
+
+      <div class="main-content">
+        <!-- Configuration Panel -->
+        <div class="config-panel">
+          <div class="section">
+            <h3>⚙️ Cấu hình cơ bản</h3>
+
+            <div class="form-group">
+              <label for="chatbotName">Tên Chatbot / Công ty</label>
+              <input
+                type="text"
+                id="chatbotName"
+                placeholder="VD: Vanced Agency"
+                value="Vanced Agency"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="workersUrl">Workers URL</label>
+              <input
+                type="url"
+                id="workersUrl"
+                placeholder="https://your-worker.your-subdomain.workers.dev"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="welcomeMessage">Tin nhắn chào mừng</label>
+              <input
+                type="text"
+                id="welcomeMessage"
+                placeholder="Xin chào! Tôi có thể giúp gì cho bạn?"
+                value="Xin chào! Tôi có thể giúp gì cho bạn?"
+              />
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>🎯 Chế độ hoạt động</h3>
+            <div class="mode-selector">
+              <div class="mode-option active" data-mode="info">
+                <h4>💬 Info Mode</h4>
+                <p>Tư vấn thông tin, FAQ</p>
+              </div>
+              <div class="mode-option" data-mode="phone">
+                <h4>📞 Phone Collection</h4>
+                <p>Thu thập số điện thoại</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>🎨 Giao diện</h3>
+            <div class="theme-grid">
+              <div
+                class="theme-option theme-modern-blue active"
+                data-theme="modern-blue"
+              >
+                <div class="theme-preview"></div>
+                <span>Modern Blue</span>
+              </div>
+              <div
+                class="theme-option theme-corporate-gray"
+                data-theme="corporate-gray"
+              >
+                <div class="theme-preview"></div>
+                <span>Corporate Gray</span>
+              </div>
+              <div
+                class="theme-option theme-friendly-green"
+                data-theme="friendly-green"
+              >
+                <div class="theme-preview"></div>
+                <span>Friendly Green</span>
+              </div>
+              <div class="theme-option theme-custom" data-theme="custom">
+                <div class="theme-preview"></div>
+                <span>Custom Orange</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>📍 Vị trí hiển thị</h3>
+            <div class="form-group">
+              <select id="position">
+                <option value="bottom-right">Góc dưới phải</option>
+                <option value="bottom-left">Góc dưới trái</option>
+                <option value="top-right">Góc trên phải</option>
+                <option value="top-left">Góc trên trái</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="generate-btn" onclick="generateCode()">
+            🚀 Tạo mã nhúng
+          </button>
+        </div>
+
+        <!-- Preview Panel -->
+        <div class="preview-panel">
+          <div class="section">
+            <h3>👀 Xem trước</h3>
+            <div class="preview-chatbot">
+              <h4>Chatbot sẽ hiển thị như thế này:</h4>
+              <div class="chat-widget-preview">
+                <div class="chat-header-preview" id="previewHeader">
+                  Vanced Agency
+                </div>
+                <div class="chat-body-preview">
+                  Xin chào! Tôi có thể giúp gì cho bạn?
+                </div>
+                <div class="chat-input-preview">
+                  <input
+                    type="text"
+                    class="input-preview"
+                    placeholder="Nhập tin nhắn..."
+                    readonly
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="output-section" id="outputSection" style="display: none">
+            <h4>📋 Mã nhúng cho website</h4>
+            <p style="color: #94a3b8; margin-bottom: 15px">
+              Copy và paste 3 đoạn code sau vào website của bạn:
+            </p>
+
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode('config')">
+                Copy
+              </button>
+              <pre id="configCode"><!-- Mã sẽ được tạo tự động --></pre>
+            </div>
+
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode('css')">Copy</button>
+              <pre id="cssCode"><!-- Mã sẽ được tạo tự động --></pre>
+            </div>
+
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode('main')">Copy</button>
+              <pre id="mainCode"><!-- Mã sẽ được tạo tự động --></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Configuration state
+      let config = {
+        chatbotName: "Vanced Agency",
+        workersUrl: "",
+        welcomeMessage: "Xin chào! Tôi có thể giúp gì cho bạn?",
+        mode: "info",
+        theme: "modern-blue",
+        position: "bottom-right",
+      };
+
+      // Theme colors for preview
+      const themeColors = {
+        "modern-blue": "#3b82f6",
+        "corporate-gray": "#6b7280",
+        "friendly-green": "#10b981",
+        custom: "#f59e0b",
+      };
+
+      // Event listeners
+      document.addEventListener("DOMContentLoaded", function () {
+        setupEventListeners();
+        updatePreview();
+      });
+
+      function setupEventListeners() {
+        // Input changes
+        document
+          .getElementById("chatbotName")
+          .addEventListener("input", (e) => {
+            config.chatbotName = e.target.value;
+            updatePreview();
+          });
+
+        document.getElementById("workersUrl").addEventListener("input", (e) => {
+          config.workersUrl = e.target.value;
+        });
+
+        document
+          .getElementById("welcomeMessage")
+          .addEventListener("input", (e) => {
+            config.welcomeMessage = e.target.value;
+            updatePreview();
+          });
+
+        document.getElementById("position").addEventListener("change", (e) => {
+          config.position = e.target.value;
+        });
+
+        // Mode selection
+        document.querySelectorAll(".mode-option").forEach((option) => {
+          option.addEventListener("click", () => {
+            document
+              .querySelectorAll(".mode-option")
+              .forEach((o) => o.classList.remove("active"));
+            option.classList.add("active");
+            config.mode = option.dataset.mode;
+          });
+        });
+
+        // Theme selection
+        document.querySelectorAll(".theme-option").forEach((option) => {
+          option.addEventListener("click", () => {
+            document
+              .querySelectorAll(".theme-option")
+              .forEach((o) => o.classList.remove("active"));
+            option.classList.add("active");
+            config.theme = option.dataset.theme;
+            updatePreview();
+          });
+        });
+      }
+
+      function updatePreview() {
+        // Update header
+        document.getElementById("previewHeader").textContent =
+          config.chatbotName;
+        document.getElementById("previewHeader").style.background =
+          themeColors[config.theme];
+
+        // Update welcome message
+        document.querySelector(".chat-body-preview").textContent =
+          config.welcomeMessage;
+      }
+
+      function generateCode() {
+        if (!config.workersUrl) {
+          alert("Vui lòng nhập Workers URL!");
+          return;
+        }
+
+        // Generate configuration code
+        const configCode =
+          `<!-- 1. Configuration Object -->
+<script>
+  window.VancedChatbotConfig = {
+    workersUrl: "${config.workersUrl}",
+    chatbotName: "${config.chatbotName}",
+    chatMode: "${config.mode}",
+    theme: "${config.theme}",
+    position: "${config.position}",
+    welcomeMessage: "${config.welcomeMessage}"
+  };
+<` + `/script>`;
+
+        // Generate CSS loader code
+        const cssCode =
+          `<!-- 2. CSS Theme Loader -->
+<script>
+  (function() {
+    const theme = window.VancedChatbotConfig.theme || 'modern-blue';
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = \`https://cdn.vanced.media/chatbot-mini/style/\${theme}.css\`;
+    document.head.appendChild(link);
+  })();
+<` + `/script>`;
+
+        // Generate main CDN code
+        const mainCode =
+          `<!-- 3. Main CDN Script -->
+<script src="https://cdn.vanced.media/chatbot-mini/scripts/newest/generator.js"><` +
+          `/script>`;
+
+        // Update code blocks
+        document.getElementById("configCode").textContent = configCode;
+        document.getElementById("cssCode").textContent = cssCode;
+        document.getElementById("mainCode").textContent = mainCode;
+
+        // Show output section
+        document.getElementById("outputSection").style.display = "block";
+        document
+          .getElementById("outputSection")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function copyCode(type) {
+        let code = "";
+        switch (type) {
+          case "config":
+            code = document.getElementById("configCode").textContent;
+            break;
+          case "css":
+            code = document.getElementById("cssCode").textContent;
+            break;
+          case "main":
+            code = document.getElementById("mainCode").textContent;
+            break;
+        }
+
+        navigator.clipboard
+          .writeText(code)
+          .then(() => {
+            // Visual feedback
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = "Copied!";
+            btn.style.background = "#10b981";
+
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = "#4f46e5";
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Failed to copy: ", err);
+            alert("Không thể copy tự động. Vui lòng copy thủ công.");
+          });
+      }
+    </script>
+  </body>
+</html>

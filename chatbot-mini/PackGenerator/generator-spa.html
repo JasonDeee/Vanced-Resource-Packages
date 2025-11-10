@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanced Chatbot Generator - Step by Step</title>
+    <link rel="stylesheet" href="./Styles/generator-spa.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Left Column: Steps Content -->
+    <div class="left_col step_col">
+      <!-- Header với progress indicator -->
+      <header class="generator-header">
+        <div class="logo">
+          <h1>🤖 Vanced Chatbot Generator</h1>
+          <p>Tạo chatbot cho website của bạn trong 4 bước đơn giản</p>
+        </div>
+
+        <!-- Progress Steps (Dots) -->
+        <div class="progress-steps">
+          <div class="step active" data-step="1">
+            <div class="step-number">1</div>
+          </div>
+          <div class="step" data-step="2">
+            <div class="step-number">2</div>
+          </div>
+          <div class="step" data-step="3">
+            <div class="step-number">3</div>
+          </div>
+          <div class="step" data-step="4">
+            <div class="step-number">4</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="steps-main">
+          <!-- Step 1: Theme & Colors -->
+          <section class="step-content active" id="step-1">
+            <div class="step-header">
+              <h2>🎨 Chọn Theme & Màu Sắc</h2>
+              <p>Chọn theme và tùy chỉnh màu sắc cho chatbot của bạn</p>
+            </div>
+
+            <div class="content-grid">
+              <div class="theme-section">
+                <h3>Theme Selection</h3>
+
+                <!-- Theme Carousel -->
+                <div class="theme-carousel">
+                  <button class="carousel-btn prev" id="theme-prev">‹</button>
+
+                  <div class="theme-container">
+                    <div class="theme-slides">
+                      <!-- Theme 1: Vanced Default -->
+                      <div
+                        class="theme-slide active"
+                        data-theme="vanced-default"
+                      >
+                        <div class="theme-preview">
+                          <div
+                            class="preview-header"
+                            style="background: #0c1136"
+                          >
+                            <div
+                              class="preview-avatar"
+                              style="background: #e72166"
+                            ></div>
+                            <div class="preview-title">Vanced Default</div>
+                          </div>
+                          <div class="preview-body">
+                            <div class="preview-message bot">
+                              Xin chào! Tôi có thể giúp gì?
+                            </div>
+                            <div class="preview-message user">Hello!</div>
+                          </div>
+                        </div>
+                        <h4>Vanced Default</h4>
+                        <p>Professional & Modern</p>
+                      </div>
+
+                      <!-- Theme 2: Slot -->
+                      <div class="theme-slide" data-theme="theme-slot-2">
+                        <div class="theme-preview">
+                          <div
+                            class="preview-header"
+                            style="background: #2c3e50"
+                          >
+                            <div
+                              class="preview-avatar"
+                              style="background: #3498db"
+                            ></div>
+                            <div class="preview-title">Theme Slot 2</div>
+                          </div>
+                          <div class="preview-body">
+                            <div class="preview-message bot">
+                              Coming Soon...
+                            </div>
+                          </div>
+                        </div>
+                        <h4>Theme Slot 2</h4>
+                        <p>Coming Soon</p>
+                      </div>
+
+                      <!-- Theme 3: Slot -->
+                      <div class="theme-slide" data-theme="theme-slot-3">
+                        <div class="theme-preview">
+                          <div
+                            class="preview-header"
+                            style="background: #27ae60"
+                          >
+                            <div
+                              class="preview-avatar"
+                              style="background: #2ecc71"
+                            ></div>
+                            <div class="preview-title">Theme Slot 3</div>
+                          </div>
+                          <div class="preview-body">
+                            <div class="preview-message bot">
+                              Coming Soon...
+                            </div>
+                          </div>
+                        </div>
+                        <h4>Theme Slot 3</h4>
+                        <p>Coming Soon</p>
+                      </div>
+
+                      <!-- Theme 4: Slot -->
+                      <div class="theme-slide" data-theme="theme-slot-4">
+                        <div class="theme-preview">
+                          <div
+                            class="preview-header"
+                            style="background: #8e44ad"
+                          >
+                            <div
+                              class="preview-avatar"
+                              style="background: #9b59b6"
+                            ></div>
+                            <div class="preview-title">Theme Slot 4</div>
+                          </div>
+                          <div class="preview-body">
+                            <div class="preview-message bot">
+                              Coming Soon...
+                            </div>
+                          </div>
+                        </div>
+                        <h4>Theme Slot 4</h4>
+                        <p>Coming Soon</p>
+                      </div>
+
+                      <!-- Theme 5: Slot -->
+                      <div class="theme-slide" data-theme="theme-slot-5">
+                        <div class="theme-preview">
+                          <div
+                            class="preview-header"
+                            style="background: #e67e22"
+                          >
+                            <div
+                              class="preview-avatar"
+                              style="background: #f39c12"
+                            ></div>
+                            <div class="preview-title">Theme Slot 5</div>
+                          </div>
+                          <div class="preview-body">
+                            <div class="preview-message bot">
+                              Coming Soon...
+                            </div>
+                          </div>
+                        </div>
+                        <h4>Theme Slot 5</h4>
+                        <p>Coming Soon</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="carousel-btn next" id="theme-next">›</button>
+                </div>
+
+                <!-- Theme Indicators -->
+                <div class="theme-indicators">
+                  <button
+                    class="indicator active"
+                    data-theme="vanced-default"
+                  ></button>
+                  <button class="indicator" data-theme="theme-slot-2"></button>
+                  <button class="indicator" data-theme="theme-slot-3"></button>
+                  <button class="indicator" data-theme="theme-slot-4"></button>
+                  <button class="indicator" data-theme="theme-slot-5"></button>
+                </div>
+              </div>
+
+              <div class="color-section">
+                <h3>Color Customization</h3>
+                <p class="color-hint">Tùy chỉnh 3 màu chính của theme</p>
+
+                <div class="color-inputs">
+                  <div class="color-group">
+                    <label for="primary-color">Primary Color</label>
+                    <input type="color" id="primary-color" value="#0c1136" />
+                    <input
+                      type="text"
+                      id="primary-text"
+                      value="#0c1136"
+                      placeholder="#0c1136"
+                    />
+                  </div>
+
+                  <div class="color-group">
+                    <label for="secondary-color">Secondary Color</label>
+                    <input type="color" id="secondary-color" value="#e72166" />
+                    <input
+                      type="text"
+                      id="secondary-text"
+                      value="#e72166"
+                      placeholder="#e72166"
+                    />
+                  </div>
+
+                  <div class="color-group">
+                    <label for="tertiary-color">Tertiary Color</label>
+                    <input type="color" id="tertiary-color" value="#ffffff" />
+                    <input
+                      type="text"
+                      id="tertiary-text"
+                      value="#ffffff"
+                      placeholder="#ffffff"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Step 2: Basic Configuration -->
+          <section class="step-content" id="step-2">
+            <div class="step-header">
+              <h2>⚙️ Cấu Hình Cơ Bản</h2>
+              <p>Thiết lập thông tin cơ bản cho chatbot của bạn</p>
+            </div>
+
+            <div class="config-form">
+              <div class="form-group required">
+                <label for="workers-url">Workers URL *</label>
+                <input
+                  type="url"
+                  id="workers-url"
+                  placeholder="https://your-worker.your-subdomain.workers.dev"
+                  required
+                />
+                <small class="hint"
+                  >URL của Cloudflare Workers để xử lý chat. Bắt buộc phải
+                  có.</small
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="bot-name">Tên Chatbot</label>
+                <input
+                  type="text"
+                  id="bot-name"
+                  placeholder="VD: Vanced Agency"
+                  value="Vanced Agency"
+                  maxlength="20"
+                />
+                <small class="hint">Tối ưu: 12 ký tự. Tối đa: 20 ký tự.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="bot-avatar">Avatar URL</label>
+                <input
+                  type="url"
+                  id="bot-avatar"
+                  placeholder="https://example.com/avatar.png"
+                />
+                <small class="hint"
+                  >Hỗ trợ: JPG, PNG, SVG, WebP. Để trống sẽ dùng avatar mặc
+                  định.</small
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="bot-tagline">Tagline</label>
+                <input
+                  type="text"
+                  id="bot-tagline"
+                  placeholder="VD: Hỗ trợ 24/7"
+                  maxlength="16"
+                />
+                <small class="hint">Không bắt buộc. Tối đa: 16 ký tự.</small>
+              </div>
+
+              <div class="form-group">
+                <label>Tin Nhắn Gợi Ý</label>
+                <div class="recommended-messages">
+                  <input
+                    type="text"
+                    id="rec-msg-1"
+                    placeholder="VD: Giúp tôi tìm hiểu về sản phẩm"
+                  />
+                  <input
+                    type="text"
+                    id="rec-msg-2"
+                    placeholder="VD: Tôi cần hỗ trợ kỹ thuật"
+                  />
+                  <input
+                    type="text"
+                    id="rec-msg-3"
+                    placeholder="VD: Liên hệ với tư vấn viên"
+                  />
+                </div>
+                <small class="hint"
+                  >Không bắt buộc. Tối đa 3 tin nhắn gợi ý.</small
+                >
+              </div>
+            </div>
+          </section>
+
+          <!-- Step 3: Position & Behavior -->
+          <section class="step-content" id="step-3">
+            <div class="step-header">
+              <h2>📍 Vị Trí & Hành Vi</h2>
+              <p>Thiết lập vị trí hiển thị và hành vi của chatbot</p>
+            </div>
+
+            <div class="position-config">
+              <div class="position-section">
+                <h3>Vị Trí Hiển Thị</h3>
+
+                <div class="position-selector">
+                  <label>Chọn góc hiển thị:</label>
+                  <select id="position-side">
+                    <option value="right">Góc phải</option>
+                    <option value="left">Góc trái</option>
+                  </select>
+                </div>
+
+                <div class="position-inputs">
+                  <div class="device-group">
+                    <h4>🖥️ Desktop</h4>
+                    <div class="input-pair">
+                      <div class="input-group">
+                        <label for="desktop-bottom">Bottom (px)</label>
+                        <input
+                          type="number"
+                          id="desktop-bottom"
+                          value="32"
+                          min="0"
+                        />
+                      </div>
+                      <div class="input-group">
+                        <label for="desktop-side" id="desktop-side-label"
+                          >Right (px)</label
+                        >
+                        <input
+                          type="number"
+                          id="desktop-side"
+                          value="32"
+                          min="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="device-group">
+                    <h4>📱 Mobile</h4>
+                    <div class="input-pair">
+                      <div class="input-group">
+                        <label for="mobile-bottom">Bottom (px)</label>
+                        <input
+                          type="number"
+                          id="mobile-bottom"
+                          value="12"
+                          min="0"
+                        />
+                      </div>
+                      <div class="input-group">
+                        <label for="mobile-side" id="mobile-side-label"
+                          >Right (px)</label
+                        >
+                        <input
+                          type="number"
+                          id="mobile-side"
+                          value="12"
+                          min="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="behavior-section">
+                <h3>Hành Vi</h3>
+
+                <div class="behavior-options">
+                  <div class="radio-group">
+                    <label>Khi tải trang:</label>
+                    <div class="radio-options">
+                      <label class="radio-option">
+                        <input
+                          type="radio"
+                          name="initial-state"
+                          value="minimized"
+                          checked
+                        />
+                        <span>Thu nhỏ (chỉ hiện icon)</span>
+                      </label>
+                      <label class="radio-option">
+                        <input
+                          type="radio"
+                          name="initial-state"
+                          value="expanded"
+                        />
+                        <span>Mở rộng (hiện toàn bộ chat)</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="checkbox-group">
+                    <label class="checkbox-option">
+                      <input type="checkbox" id="show-on-mobile" checked />
+                      <span>Hiển thị trên mobile</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Step 4: Generate Code -->
+          <section class="step-content" id="step-4">
+            <div class="step-header">
+              <h2>🚀 Tạo Mã Nhúng</h2>
+              <p>Copy và paste các đoạn code sau vào website của bạn</p>
+            </div>
+
+            <div class="code-generation">
+              <div class="code-instructions">
+                <h3>Hướng dẫn sử dụng:</h3>
+                <ol>
+                  <li>Copy 3 đoạn code bên dưới theo thứ tự</li>
+                  <li>
+                    Paste vào phần <code>&lt;head&gt;</code> hoặc trước thẻ
+                    <code>&lt;/body&gt;</code>
+                  </li>
+                  <li>Chatbot sẽ tự động hiển thị trên website của bạn</li>
+                </ol>
+              </div>
+
+              <div class="code-blocks">
+                <!-- Code Block 1: CSS Variables -->
+                <div class="code-block">
+                  <div class="code-header">
+                    <h4>1. CSS Variables & Theme</h4>
+                    <button
+                      class="copy-btn"
+                      onclick="copyCode('css-variables')"
+                    >
+                      📋 Copy
+                    </button>
+                  </div>
+                  <pre
+                    id="css-variables-code"
+                  ><code><!-- Mã sẽ được tạo tự động --></code></pre>
+                </div>
+
+                <!-- Code Block 2: Configuration -->
+                <div class="code-block">
+                  <div class="code-header">
+                    <h4>2. Configuration Object</h4>
+                    <button class="copy-btn" onclick="copyCode('config')">
+                      📋 Copy
+                    </button>
+                  </div>
+                  <pre
+                    id="config-code"
+                  ><code><!-- Mã sẽ được tạo tự động --></code></pre>
+                </div>
+
+                <!-- Code Block 3: Main Script -->
+                <div class="code-block">
+                  <div class="code-header">
+                    <h4>3. Main Chatbot Script</h4>
+                    <button class="copy-btn" onclick="copyCode('main-script')">
+                      📋 Copy
+                    </button>
+                  </div>
+                  <pre
+                    id="main-script-code"
+                  ><code><!-- Mã sẽ được tạo tự động --></code></pre>
+                </div>
+              </div>
+
+              <div class="generation-actions">
+                <button class="generate-all-btn" onclick="generateAllCode()">
+                  🎯 Tạo Tất Cả Mã
+                </button>
+                <button class="download-btn" onclick="downloadConfig()">
+                  💾 Tải Cấu Hình
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Step 5: Generate Code -->
+          <section class="step-content" id="step-5">
+            <div class="step-header">
+              <h2>🚀 Tạo Mã Nhúng</h2>
+              <p>Copy và paste các đoạn code sau vào website của bạn</p>
+            </div>
+
+            <div class="code-generation">
+              <div class="code-instructions">
+                <h3>Hướng dẫn sử dụng:</h3>
+                <ol>
+                  <li>Copy 3 đoạn code bên dưới theo thứ tự</li>
+                  <li>
+                    Paste vào phần <code>&lt;head&gt;</code> hoặc trước thẻ
+                    <code>&lt;/body&gt;</code>
+                  </li>
+                  <li>Chatbot sẽ tự động hiển thị trên website của bạn</li>
+                </ol>
+              </div>
+
+              <div class="code-blocks">
+                <!-- Code Block 1: CSS Variables -->
+                <div class="code-block">
+                  <div class="code-header">
+                    <h4>1. CSS Variables & Theme</h4>
+                    <button
+                      class="copy-btn"
+                      onclick="copyCode('css-variables')"
+                    >
+                      📋 Copy
+                    </button>
+                  </div>
+                  <pre
+                    id="css-variables-code"
+                  ><code><!-- Mã sẽ được tạo tự động --></code></pre>
+                </div>
+
+                <!-- Code Block 2: Configuration -->
+                <div class="code-block">
+                  <div class="code-header">
+                    <h4>2. Configuration Object</h4>
+                    <button class="copy-btn" onclick="copyCode('config')">
+                      📋 Copy
+                    </button>
+                  </div>
+                  <pre
+                    id="config-code"
+                  ><code><!-- Mã sẽ được tạo tự động --></code></pre>
+                </div>
+
+                <!-- Code Block 3: Main Script -->
+                <div class="code-block">
+                  <div class="code-header">
+                    <h4>3. Main Chatbot Script</h4>
+                    <button class="copy-btn" onclick="copyCode('main-script')">
+                      📋 Copy
+                    </button>
+                  </div>
+                  <pre
+                    id="main-script-code"
+                  ><code><!-- Mã sẽ được tạo tự động --></code></pre>
+                </div>
+              </div>
+
+              <div class="generation-actions">
+                <button class="generate-all-btn" onclick="generateAllCode()">
+                  🎯 Tạo Tất Cả Mã
+                </button>
+                <button class="download-btn" onclick="downloadConfig()">
+                  💾 Tải Cấu Hình
+                </button>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- Footer Navigation -->
+        <footer class="generator-footer">
+          <button class="nav-btn prev" id="prev-btn" disabled>← Quay lại</button>
+          <div class="step-info"><span id="current-step">1</span> / 4</div>
+          <button class="nav-btn next" id="next-btn">Tiếp theo →</button>
+        </footer>
+      </div>
+
+      <!-- Right Column: Live Preview -->
+      <div class="right_col preview_col">
+        <div class="preview-header">
+            <h3>👀 Live Preview</h3>
+            <div class="device-toggle">
+              <button class="device-btn active" data-device="desktop">
+                🖥️ Desktop
+              </button>
+              <button class="device-btn" data-device="mobile">📱 Mobile</button>
+            </div>
+          </div>
+
+          <div class="live-preview-container">
+            <div class="preview-frame desktop" id="preview-frame">
+              <!-- Chatbot preview -->
+              <div class="chatbot-preview" id="chatbot-preview">
+                <div class="preview-chatbot-icon" id="preview-icon">
+                  <img
+                    src="https://vanced.media/wp-content/uploads/woocommerce-placeholder.png"
+                    alt="Bot Avatar"
+                  />
+                </div>
+
+                <div class="preview-chatbot-interface" id="preview-interface">
+                  <div class="preview-header">
+                    <div class="preview-avatar">
+                      <img
+                        src="https://vanced.media/wp-content/uploads/woocommerce-placeholder.png"
+                        alt="Bot Avatar"
+                      />
+                    </div>
+                    <div class="preview-info">
+                      <h3 id="preview-bot-name">Vanced Agency</h3>
+                      <p id="preview-bot-tagline">Hỗ trợ 24/7</p>
+                    </div>
+                    <button class="preview-close">×</button>
+                  </div>
+
+                  <div class="preview-messages">
+                    <div class="preview-message bot">
+                      <span id="preview-welcome-msg"
+                        >Xin chào! Tôi có thể giúp gì cho bạn?</span
+                      >
+                    </div>
+                    <div class="preview-message user">
+                      Tôi cần hỗ trợ về sản phẩm
+                    </div>
+                    <div class="preview-message bot">
+                      Tất nhiên! Tôi sẽ giúp bạn tìm hiểu về sản phẩm. Bạn quan
+                      tâm đến loại sản phẩm nào?
+                    </div>
+                  </div>
+
+                  <div
+                    class="preview-recommendations"
+                    id="preview-recommendations"
+                  >
+                    <!-- Recommended messages sẽ được render ở đây -->
+                  </div>
+
+                  <div class="preview-input">
+                    <input
+                      type="text"
+                      placeholder="Nhập tin nhắn..."
+                      readonly
+                    />
+                    <button>→</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Scripts -->
+    <script src="./js/generator-spa-updated.js"></script>
+  </body>
+</html>

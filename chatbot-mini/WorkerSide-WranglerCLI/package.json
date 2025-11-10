@@ -1,0 +1,22 @@
+{
+  "name": "vanced-chatbot-workers",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers backend for Vanced Chatbot Template",
+  "main": "src/worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "keywords": [
+    "chatbot",
+    "cloudflare-workers",
+    "openrouter",
+    "customer-support"
+  ],
+  "author": "Vanced Agency",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

@@ -1,0 +1,37 @@
+# Cloudflare Workers Configuration Template
+# Copy this file to wrangler.toml and fill in your values
+
+name = "your-chatbot-worker"
+main = "src/worker.js"
+compatibility_date = "2024-01-15"
+
+# ====== REQUIRED: Add your environment variables ======
+# Go to Cloudflare Dashboard > Workers > Settings > Environment Variables
+# Or add them here in [vars] section
+
+[vars]
+# OPENROUTER_API_KEY = "your-openrouter-api-key-here"
+# APPS_SCRIPT_URL = "your-google-apps-script-url-here"
+
+# ====== Durable Objects for WebSocket Chat ======
+[[durable_objects.bindings]]
+name = "WEBSOCKET_CHAT_ROOM"
+class_name = "WebSocketChatRoom"
+
+# ====== Durable Objects Migrations ======
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["WebSocketChatRoom"]
+
+# ====== Optional: Custom Domain ======
+# Uncomment and configure if you have a custom domain
+# routes = [
+#   { pattern = "chat.yourdomain.com/*", zone_name = "yourdomain.com" }
+# ]
+
+# ====== Compatibility & Observability ======
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
+head_sampling_rate = 1

@@ -1,0 +1,34 @@
+Về số lượng theme. Trước mắt chúng ta mới chỉ có 1 theme do tự tôi cấu hình, hãy xem file HTML bên trên để hiểu thêm về các thông tin tôi đang muốn hiển thị trong 1 box chat của bot. SCSS Theme đầu tiên này hiện đang chưa hoàn toàn tuân theo quy định chỉ sử dụng 3 màu cơ bản. Bạn cần giúp tôi Tạo một file mới với tên và đường dẫn chatbot-mini/style/VancedDefault.scss
+
+Về carousel hãy để sẵn 5 slot theme và đặt tên chúng thật dễ tìm và thay thế sau này. Theme mặc định tôi là theme số 1 đặt tên là Vanced Default.
+
+Không cần color picker, chỉ cần 3 input để chọn màu sắc.
+
+Mỗi một theme sẽ là một file css khác nhau, và các theme không chỉ khác nhau về màu sắc mà còn khác về thêm Border Radius, outline style, font style, v.v. Nói cách khác, mỗi theme là một style thiết kế khác nhau.
+
+Về Avatar:
+Người dùng sẽ cần chủ động upload lên host của họ hoặc Imgur, v.v. sau đó paste link URI của ảnh vào input trong generator thôi.
+Chúng ta sẽ ghi gợi ý cho người dùng Format ảnh phù hợp.
+Chấp nhận cả ảnh SVG và webp. Sau khi paste URI, chúng ta sẽ tự động update preview của bot.
+URI mặc định nếu người dùng bỏ trống: https://vanced.media/wp-content/uploads/woocommerce-placeholder.png 
+
+Về Position System:
+Responsive behavior - Màn hình Preview sẽ có một toggle chuyển qua lại giữa Desktop Preview và Mobile Preview.
+Bên dưới dropdown chọn vị trí left/right bây giờ sẽ là 4 input chia làm 2 cặp. Mỗi cặp gồm bottom và left/right. Cặp 1 là for Desktop, cặp 2 là for Mobile 
+
+Không cần Coordinate limits, input phần này sẽ có giá trị mặc định là 32px cho cả 2 input của desktop và 12px cho Mobile
+
+Về Validation Rules - Trước mắt không cần tính năng này
+
+Về Advanced features: Không cần animation controls, sound settings.
+
+Về Deployment:
+Thư mục "ChatbotMini_Package" chính là 1 CDN vơi URL tương ứng: https://cdn.vanced.media/chatbot-mini
+Người dùng muốn tạo chat bot, họ sẽ truy cập vào https://cdn.vanced.media/chatbot-mini\PackGenerator\generator.html, sau đó hoàn thành các step, cuối cùng họ có được Generated code và chỉ cần paste vào trang web của họ.
+Trong Generated code có một file quan trọng nhất đó là https://cdn.vanced.media/chatbot-mini/scripts/newest/generator.js, dùng để append các thẻ HTML của chat bot, đồng thời chứa logic để giao tiếp với worker. 
+- Ở chế độ (behavior) "Thu nhỏ" Khi tải trang, icon của chat bot được click vào lần đầu tiên thì UI mới gọi Worker.
+- Ở chế độ (behavior) "mở rộng", sau khi append hoàn toàn các thẻ HTML, UI mới gọi Worker.
+
+Bạn còn cần tôi làm rõ thông tin gì không? Vai trò của generator.js đã rõ ràng với bạn chưa?
+
+Hãy cập nhật các thông tin trên vào file Bot_Config_Info giúp tôi.
