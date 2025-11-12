@@ -1,24 +1,12 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
-html {
-  --global-palette1: #e72166;
-  --global-palette2: #2a38a1;
-  --global-palette3: #0c1136;
-  --global-palette4: #0c1136;
-  --global-palette5: #0c1136;
-  --global-palette6: #7081ff;
-  --global-palette7: #c9c7c7;
-  --global-palette8: #e9e7e7;
-  --global-palette9: #ffffff;
-}
-
 :root {
-  --MainColor: var(--text-color, #0c1136);
-  --AccentColor: var(--accent-color, #e72166);
-  --WhiteColor: var(--white-color, #fff);
-  --GrayColor: var(--gray-color, #e9e7e7);
-  --DeepGrayColor: var(--deep-gray-color, #c9c7c7);
-  --SecondAccentColor: var(--second-accent-color, #ffe9f1);
+  --primary: #0c1136;
+  --secondary: #e72166;
+  --tertiary: #ffffff;
+  --tertiary-Alt: #e9e7e7;
+  --tertiary-Alt2: #c9c7c7;
+  --secondary-Alt: #ffe9f1;
 }
 
 .Vx_Chatbot {
@@ -46,7 +34,7 @@ html {
   transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
 }
 .Vx_chat-container .Vx_ChatBotHeader {
-  background-color: var(--global-palette3);
+  background-color: var(--primary);
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -56,7 +44,7 @@ html {
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
-  color: var(--global-palette9);
+  color: var(--tertiary);
 }
 .Vx_chat-container .Vx_ChatBotHeader .Vx_ChatBotLogo {
   width: 48px;
@@ -69,7 +57,7 @@ html {
 .Vx_chat-container .Vx_ChatBotHeader .Vx_ChatBotLogo img {
   width: 100%;
   height: 100%;
-  background-color: var(--global-palette1);
+  background-color: var(--secondary);
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -80,7 +68,7 @@ html {
   cursor: pointer;
 }
 .Vx_chat-container .Vx_ChatBotHeader #AdditionInfo svg {
-  fill: var(--global-palette9);
+  fill: var(--tertiary);
 }
 .Vx_chat-container .Vx_ChatBotHeader #AdditionInfo::before {
   content: "Chat bot có thể mắc lỗi | Đoạn chat này sẽ được lưu lại. Hãy sử dụng thận trọng, không sử dụng ngôn ngữ không phù hợp.";
@@ -91,13 +79,13 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--global-palette9);
+  background-color: var(--tertiary);
   border-radius: 4px;
   padding: 8px;
   width: 256px;
   font-size: 0.8rem;
   font-weight: 400;
-  color: var(--global-palette3);
+  color: var(--primary);
   opacity: 0;
   z-index: 100;
   transition: all 0.8s cubic-bezier(0.25, 0, 0, 1);
@@ -111,7 +99,7 @@ html {
 .Vx_chat-container .Vx_ChatBotHeader h1 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--global-palette9);
+  color: var(--tertiary);
   margin: 0;
   flex: auto;
   line-height: 1.2rem;
@@ -131,21 +119,21 @@ html {
   height: 500px;
   padding: 20px;
   overflow-y: auto;
-  background-color: var(--global-palette9);
+  background-color: var(--tertiary);
 }
 .Vx_chat-messages::-webkit-scrollbar {
   width: 4px;
 }
 .Vx_chat-messages::-webkit-scrollbar-thumb {
-  background-color: var(--global-palette7);
+  background-color: var(--tertiary-Alt2);
   border-radius: 2px;
 }
 
 .Vx_chat-input {
   display: flex;
   flex-direction: column;
-  background-color: var(--global-palette9);
-  border-top: 1px solid var(--global-palette7);
+  background-color: var(--tertiary);
+  border-top: 1px solid var(--tertiary-Alt2);
   position: relative;
 }
 .Vx_chat-input .Vx_Recommendation_Question {
@@ -172,9 +160,9 @@ html {
   width: max-content;
   padding: 8px 16px;
   border-radius: 32px;
-  border: 2px solid var(--global-palette3);
+  border: 2px solid var(--primary);
   cursor: pointer;
-  box-shadow: 0px 0px 0px var(--global-palette3);
+  box-shadow: 0px 0px 0px var(--primary);
   transition-duration: 0.33s;
 }
 .Vx_chat-input .Vx_Recommendation_Question p::after {
@@ -188,7 +176,7 @@ html {
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
 }
 .Vx_chat-input .Vx_Recommendation_Question p:hover {
-  box-shadow: 4px 4px 0px var(--global-palette3);
+  box-shadow: 4px 4px 0px var(--primary);
   transform: translate(-4px, -4px);
 }
 .Vx_chat-input .Vx_Recommendation_Question p:hover::after {
@@ -214,36 +202,36 @@ html {
 .Vx_chat-input input {
   flex: 1;
   padding: 10px;
-  border: 1px solid var(--global-palette7);
+  border: 1px solid var(--tertiary-Alt2);
   border-right-width: 0;
   font-size: 14px;
 }
 .Vx_chat-input input ::-moz-placeholder {
-  color: var(--global-palette3) !important;
+  color: var(--primary) !important;
   opacity: 0.6 !important;
 }
 .Vx_chat-input input ::placeholder {
-  color: var(--global-palette3) !important;
+  color: var(--primary) !important;
   opacity: 0.6 !important;
 }
 .Vx_chat-input input:focus {
   outline: none;
-  border-color: var(--global-palette1);
+  border-color: var(--secondary);
 }
 .Vx_chat-input button {
   padding: 8px 24px;
-  background-color: var(--global-palette1);
-  color: var(--global-palette9);
+  background-color: var(--secondary);
+  color: var(--tertiary);
   border: none;
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.2s;
 }
 .Vx_chat-input button:hover {
-  background-color: var(--global-palette3);
+  background-color: var(--primary);
 }
 .Vx_chat-input button:active {
-  background-color: var(--global-palette3);
+  background-color: var(--primary);
 }
 
 .Vx_message {
@@ -255,35 +243,35 @@ html {
 }
 
 .Vx_user-message {
-  background-color: var(--global-palette8);
-  color: var(--global-palette3);
+  background-color: var(--tertiary-Alt);
+  color: var(--primary);
   margin-left: auto;
 }
 
 .Vx_bot-message {
-  background-color: var(--global-palette1);
-  color: var(--global-palette9);
+  background-color: var(--secondary);
+  color: var(--tertiary);
   margin-right: auto;
 }
 
 .Vx_error-message {
-  background-color: var(--global-palette6) !important;
+  background-color: var(--secondary) !important;
   padding: 15px !important;
 }
 
 .Vx_error-title {
-  color: var(--global-palette9);
+  color: var(--tertiary);
   font-weight: bold;
   margin-bottom: 8px;
 }
 
 .Vx_error-body {
-  color: var(--global-palette7);
+  color: var(--tertiary-Alt2);
   margin-bottom: 8px;
 }
 
 .Vx_error-details {
-  background: var(--global-palette8);
+  background: var(--tertiary-Alt);
   padding: 8px;
   border-radius: 4px;
   font-family: monospace;
@@ -300,8 +288,8 @@ html {
 }
 
 body {
-  background-color: var(--white-color);
-  color: var(--WhiteColor);
+  background-color: var(--tertiary);
+  color: var(--tertiary);
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -338,7 +326,7 @@ body {
   bottom: 0;
   left: 0;
   padding: 2rem;
-  color: var(--WhiteColor);
+  color: var(--tertiary);
   font-size: 0.8rem;
   font-weight: 300;
   opacity: 0.7;
@@ -359,8 +347,8 @@ body {
   align-items: flex-end;
   justify-content: flex-start;
   z-index: 1;
-  border: solid 2px var(--MainColor);
-  box-shadow: 8px 8px 0px var(--MainColor);
+  border: solid 2px var(--primary);
+  box-shadow: 8px 8px 0px var(--primary);
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatMessages {
   flex: auto;
@@ -368,7 +356,7 @@ body {
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatMessages::after {
   content: "Đang tải...";
   display: block;
-  background-color: var(--AccentColor);
+  background-color: var(--secondary);
   width: 5%;
   padding-left: 32px;
   border-radius: 8px;
@@ -404,7 +392,7 @@ body {
   transform: translateX(-100%);
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .Vx_Recommendation_Question {
-  color: var(--MainColor);
+  color: var(--primary);
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .Vx_Recommendation_Question p {
   font-size: 0.8rem;
@@ -416,7 +404,7 @@ body {
   width: 316px;
   height: auto;
   min-height: 128px;
-  border: 1px solid var(--AccentColor);
+  border: 1px solid var(--secondary);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -442,9 +430,9 @@ body {
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_RequestForRealAssist_Message .OpusPC_Slot_Message__Title h2 {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--MainColor);
+  color: var(--primary);
   text-transform: none;
-  border-bottom: solid 1px var(--DeepGrayColor);
+  border-bottom: solid 1px var(--tertiary-Alt2);
   width: 100%;
   padding-bottom: 8px;
 }
@@ -459,8 +447,8 @@ body {
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Message__Title h2 a:hover,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_SingleComponent_Message .OpusPC_Slot_Message__Title h2 a:hover,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_RequestForRealAssist_Message .OpusPC_Slot_Message__Title h2 a:hover {
-  color: var(--AccentColor);
-  border-bottom: solid 1px var(--AccentColor);
+  color: var(--secondary);
+  border-bottom: solid 1px var(--secondary);
   text-decoration: none;
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Lister,
@@ -477,7 +465,7 @@ body {
   align-items: flex-start;
   justify-content: flex-start;
   gap: 8px;
-  color: var(--MainColor);
+  color: var(--primary);
   position: relative;
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Lister::-webkit-scrollbar,
@@ -488,7 +476,7 @@ body {
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Lister::-webkit-scrollbar-thumb,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_SingleComponent_Message .OpusPC_Slot_Lister::-webkit-scrollbar-thumb,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_RequestForRealAssist_Message .OpusPC_Slot_Lister::-webkit-scrollbar-thumb {
-  background-color: var(--GrayColor);
+  background-color: var(--tertiary-Alt);
   border-radius: 2px;
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Lister .CPU .OpusPC_SingleComponent_Slot_Icon,
@@ -542,7 +530,7 @@ body {
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Lister .OpusPC_SingleComponent_Slot,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_SingleComponent_Message .OpusPC_Slot_Lister .OpusPC_SingleComponent_Slot,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_RequestForRealAssist_Message .OpusPC_Slot_Lister .OpusPC_SingleComponent_Slot {
-  background: var(--GrayColor);
+  background: var(--tertiary-Alt);
   padding: 12px;
   display: flex;
   flex-direction: row;
@@ -588,12 +576,12 @@ body {
   justify-content: space-between;
   width: 100%;
   padding: 1rem;
-  border-top: solid 1px var(--DeepGrayColor);
+  border-top: solid 1px var(--tertiary-Alt2);
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Footer .Slot_Price,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_SingleComponent_Message .OpusPC_Slot_Footer .Slot_Price,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_RequestForRealAssist_Message .OpusPC_Slot_Footer .Slot_Price {
-  color: var(--MainColor);
+  color: var(--primary);
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Footer .Slot_Price h3,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_SingleComponent_Message .OpusPC_Slot_Footer .Slot_Price h3,
@@ -612,12 +600,12 @@ body {
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_SingleComponent_Message .OpusPC_Slot_Footer button,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_RequestForRealAssist_Message .OpusPC_Slot_Footer button {
   padding: 1rem 2rem;
-  background-color: var(--AccentColor);
-  color: var(--WhiteColor);
+  background-color: var(--secondary);
+  color: var(--tertiary);
   border: none;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
-  box-shadow: 0px 0px 0px var(--MainColor);
+  box-shadow: 0px 0px 0px var(--primary);
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Footer button ::after,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_SingleComponent_Message .OpusPC_Slot_Footer button ::after,
@@ -634,7 +622,7 @@ body {
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Footer button:hover,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_SingleComponent_Message .OpusPC_Slot_Footer button:hover,
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_RequestForRealAssist_Message .OpusPC_Slot_Footer button:hover {
-  box-shadow: 4px 4px 0px var(--MainColor);
+  box-shadow: 4px 4px 0px var(--primary);
   transform: translate(-4px, -4px);
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_Slot_Message .OpusPC_Slot_Footer button:hover ::after,
@@ -654,7 +642,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--WhiteColor);
+  background-color: var(--tertiary);
   margin: 0 auto;
   opacity: 0;
   pointer-events: none;
@@ -667,7 +655,7 @@ body {
   display: inline-block;
   max-width: 62%;
   height: auto;
-  color: var(--MainColor);
+  color: var(--primary);
   text-align: center;
   font-size: 0.8rem;
   font-weight: 400;
@@ -691,7 +679,7 @@ body {
      object-fit: cover;
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_RequestForRealAssist_Message {
-  color: var(--MainColor);
+  color: var(--primary);
   padding: 24px;
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_RequestForRealAssist_Message .OpusPC_RequestForRealAssist_Message__Contents {
@@ -720,18 +708,18 @@ body {
   margin-bottom: 8px;
 }
 .OpusAgent_Containter .OpusAgent_ChatInterface #Vx_chatContainer .OpusPC_RequestForRealAssist_Message .OpusPC_Slot_Footer .Opus_StayWithOpus_Button {
-  border: solid 1px var(--MainColor);
-  background: var(--WhiteColor);
-  color: var(--MainColor);
+  border: solid 1px var(--primary);
+  background: var(--tertiary);
+  color: var(--primary);
   margin-bottom: unset;
 }
 
 .pc-builder {
   width: 62vw;
-  background-color: var(--WhiteColor);
+  background-color: var(--tertiary);
   padding: 2rem 4rem;
   padding-bottom: 0;
-  color: var(--MainColor);
+  color: var(--primary);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -745,7 +733,7 @@ body {
 .pc-builder__header {
   padding-bottom: 1rem;
   margin-bottom: 1rem;
-  border-bottom: solid 1px var(--MainColor);
+  border-bottom: solid 1px var(--primary);
 }
 .pc-builder__header h1 {
   font-size: 1.5rem;
@@ -756,7 +744,7 @@ body {
   font-size: 1rem;
 }
 .pc-builder__header p {
-  color: var(--MainColor);
+  color: var(--primary);
   font-size: 0.8rem;
 }
 .pc-builder__HolderSlots {
@@ -766,9 +754,9 @@ body {
 }
 .pc-builder__HolderSlots .slot {
   padding: 12px 32px;
-  border: solid 1px var(--MainColor);
+  border: solid 1px var(--primary);
   font-weight: 600;
-  box-shadow: 0px 0px 0px var(--MainColor);
+  box-shadow: 0px 0px 0px var(--primary);
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
   cursor: pointer;
   position: relative;
@@ -784,12 +772,12 @@ body {
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
 }
 .pc-builder__HolderSlots .slot--active {
-  background-color: var(--AccentColor);
-  color: var(--WhiteColor);
+  background-color: var(--secondary);
+  color: var(--tertiary);
   padding: 12px 42px;
 }
 .pc-builder__HolderSlots .slot:hover {
-  box-shadow: 4px 4px 0px var(--MainColor);
+  box-shadow: 4px 4px 0px var(--primary);
   transform: translate(-4px, -4px);
 }
 .pc-builder__HolderSlots .slot:hover::after {
@@ -818,10 +806,10 @@ body {
   border-width: 1px;
   border-style: solid;
   border-color: transparent;
-  border-bottom-color: var(--MainColor);
-  background: var(--WhiteColor);
+  border-bottom-color: var(--primary);
+  background: var(--tertiary);
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
-  box-shadow: 0px 0px 0px var(--MainColor);
+  box-shadow: 0px 0px 0px var(--primary);
   position: relative;
 }
 .pc-builder__components .component-row::after {
@@ -835,9 +823,9 @@ body {
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
 }
 .pc-builder__components .component-row:hover {
-  border-color: var(--MainColor);
+  border-color: var(--primary);
   transform: translate(-4px, -4px);
-  box-shadow: 4px 4px 0px var(--MainColor);
+  box-shadow: 4px 4px 0px var(--primary);
   padding: 1rem;
   margin: 1rem;
   margin-bottom: 0;
@@ -866,7 +854,7 @@ body {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border: solid var(--GrayColor);
+  border: solid var(--tertiary-Alt);
   border-width: 0 0 0 1px;
   width: 100%;
 }
@@ -900,11 +888,11 @@ body {
 .pc-builder__components .component-row__content .product-card__info .warranty,
 .pc-builder__components .component-row__content .product-card__info .stock {
   font-size: 0.8rem;
-  color: var(--MainColor);
+  color: var(--primary);
   opacity: 0.7;
 }
 .pc-builder__components .component-row__content .product-card__price {
-  color: var(--MainColor);
+  color: var(--primary);
   font-weight: 600;
   position: relative;
   display: flex;
@@ -916,7 +904,7 @@ body {
   text-align: center;
 }
 .pc-builder__components .component-row__content .product-card__price span {
-  color: var(--MainColor);
+  color: var(--primary);
   font-size: 0.8rem;
   font-weight: 300;
   text-align: center;
@@ -926,16 +914,16 @@ body {
   flex-direction: row;
   align-items: stretch;
   justify-content: stretch;
-  border: 1px solid var(--MainColor);
+  border: 1px solid var(--primary);
 }
 .pc-builder__components .component-row__content .product-card__price .Qualtity p {
-  color: var(--MainColor);
+  color: var(--primary);
   font-size: 0.8rem;
   font-weight: 600;
   width: auto;
   flex: auto;
   text-align: center;
-  border: solid var(--MainColor);
+  border: solid var(--primary);
   border-width: 0px 1px 0px 1px;
   min-width: 2rem;
   justify-content: center;
@@ -950,19 +938,19 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--MainColor);
+  color: var(--primary);
   line-height: 1rem;
   font-size: 1rem;
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
 }
 .pc-builder__components .component-row__content .product-card__price .Qualtity .Decrease button:hover,
 .pc-builder__components .component-row__content .product-card__price .Qualtity .Increase button:hover {
-  background-color: var(--AccentColor);
-  color: var(--WhiteColor);
+  background-color: var(--secondary);
+  color: var(--tertiary);
   font-size: 1.2rem;
 }
 .pc-builder__components .component-row__content .product-card__total {
-  color: var(--AccentColor);
+  color: var(--secondary);
   font-size: 1.2rem;
   font-weight: 600;
   text-align: center;
@@ -980,7 +968,7 @@ body {
   cursor: pointer;
   width: 24px;
   height: 24px;
-  color: var(--WhiteColor);
+  color: var(--tertiary);
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -992,8 +980,8 @@ body {
   pointer-events: none;
 }
 .pc-builder__components .component-row__content .add-button {
-  background-color: var(--AccentColor);
-  color: var(--WhiteColor);
+  background-color: var(--secondary);
+  color: var(--tertiary);
   padding: 0.75rem 1.5rem;
   border: none;
   cursor: pointer;
@@ -1014,8 +1002,8 @@ body {
   align-items: center;
   padding: 16px 4rem;
   margin: 0 -4rem;
-  border-top: 1px solid var(--GrayColor);
-  background-color: var(--GrayColor);
+  border-top: 1px solid var(--tertiary-Alt);
+  background-color: var(--tertiary-Alt);
   justify-content: space-between;
   align-items: end;
 }
@@ -1036,10 +1024,10 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
-  border: 1px solid var(--MainColor);
-  box-shadow: 0px 0px 0px var(--MainColor);
+  border: 1px solid var(--primary);
+  box-shadow: 0px 0px 0px var(--primary);
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
-  background-color: var(--WhiteColor);
+  background-color: var(--tertiary);
   position: relative;
   cursor: pointer;
 }
@@ -1049,7 +1037,7 @@ body {
   width: 16px;
   height: 16px;
   border-radius: 32px;
-  background: var(--GrayColor);
+  background: var(--tertiary-Alt);
   position: absolute;
   top: 8px;
   right: 8px;
@@ -1061,20 +1049,20 @@ body {
   font-size: 0.8rem;
 }
 .pc-builder__footer .promotions .promo-option.selected {
-  border-color: var(--AccentColor);
-  background-color: var(--SecondAccentColor);
+  border-color: var(--secondary);
+  background-color: var(--secondary-Alt);
 }
 .pc-builder__footer .promotions .promo-option.selected::after {
-  border-color: var(--WhiteColor);
-  background: var(--AccentColor);
-  box-shadow: 0px 0px 0px 1px var(--AccentColor);
+  border-color: var(--tertiary);
+  background: var(--secondary);
+  box-shadow: 0px 0px 0px 1px var(--secondary);
 }
 .pc-builder__footer .promotions .promo-option h1 {
   font-size: 1rem;
   font-weight: 600;
 }
 .pc-builder__footer .promotions .promo-option:hover {
-  box-shadow: 4px 4px 0px var(--MainColor);
+  box-shadow: 4px 4px 0px var(--primary);
   transform: translate(-4px, -4px);
 }
 .pc-builder__footer .promotions .promo-option img {
@@ -1106,7 +1094,7 @@ body {
 .pc-builder__footer .total-price .final-price {
   font-size: 2rem;
   font-weight: 600;
-  color: var(--AccentColor);
+  color: var(--secondary);
 }
 .pc-builder_ComponentsSelector {
   position: fixed;
@@ -1130,9 +1118,9 @@ body {
   width: 62vw;
   min-width: 1024px;
   height: 90vh;
-  background: var(--WhiteColor);
-  box-shadow: 8px 8px 0px var(--MainColor);
-  border: solid 2px var(--MainColor);
+  background: var(--tertiary);
+  box-shadow: 8px 8px 0px var(--primary);
+  border: solid 2px var(--primary);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -1140,7 +1128,7 @@ body {
 .pc-builder_ComponentsSelector .SelectorContainer .SelectorNavigation {
   width: 100%;
   height: 60px;
-  background: var(--MainColor);
+  background: var(--primary);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1162,17 +1150,17 @@ body {
 .pc-builder_ComponentsSelector .SelectorContainer .SelectorNavigation .SelectorNavigation__Search input {
   border: none;
   outline: none;
-  background: var(--WhiteColor);
+  background: var(--tertiary);
   flex: auto;
   height: 40px;
   padding: 8px;
-  color: var(--MainColor);
+  color: var(--primary);
 }
 .pc-builder_ComponentsSelector .SelectorContainer .SelectorNavigation .SelectorNavigation__Search #SelectorNavigation__Search__Button {
   all: unset;
   width: 76px;
   height: 40px;
-  background: var(--AccentColor);
+  background: var(--secondary);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
@@ -1201,7 +1189,7 @@ body {
   width: 256px;
   min-width: 256px;
   height: 100%;
-  border-right: solid 1px var(--MainColor);
+  border-right: solid 1px var(--primary);
   padding: 8px;
   padding-bottom: 64px;
   overflow-y: scroll;
@@ -1211,14 +1199,14 @@ body {
   width: 4px;
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .ComponentsFilters::-webkit-scrollbar-thumb {
-  background-color: var(--GrayColor);
+  background-color: var(--tertiary-Alt);
   border-radius: 2px;
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .ComponentsFilters .Filter {
-  border-bottom: solid 1px var(--MainColor);
+  border-bottom: solid 1px var(--primary);
   padding-bottom: 8px;
   margin-bottom: 8px;
-  color: var(--MainColor);
+  color: var(--primary);
   flex-wrap: wrap;
   display: flex;
   flex-direction: column;
@@ -1244,16 +1232,16 @@ body {
   min-width: 12px;
   min-height: 12px;
   border-radius: 16px;
-  border: solid 2px var(--MainColor);
-  background-color: var(--WhiteColor);
-  box-shadow: 0px 0px 0px var(--MainColor);
+  border: solid 2px var(--primary);
+  background-color: var(--tertiary);
+  box-shadow: 0px 0px 0px var(--primary);
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
   cursor: pointer;
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .ComponentsFilters .Filter fieldset input:checked {
-  background-color: var(--AccentColor);
-  border: solid 2px var(--WhiteColor);
-  box-shadow: 0px 0px 0px 2px var(--AccentColor);
+  background-color: var(--secondary);
+  border: solid 2px var(--tertiary);
+  box-shadow: 0px 0px 0px 2px var(--secondary);
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .ComponentsFilters .Filter fieldset label {
   font-size: 0.8rem;
@@ -1285,7 +1273,7 @@ body {
   width: 4px;
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Components_Displayer::-webkit-scrollbar-thumb {
-  background-color: var(--GrayColor);
+  background-color: var(--tertiary-Alt);
   border-radius: 2px;
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Components_Displayer .SingleComponent_Display {
@@ -1293,16 +1281,16 @@ body {
   max-width: 100%;
   padding: 8px;
   margin: 0 8px;
-  background: var(--WhiteColor);
+  background: var(--tertiary);
   border: solid 1px transparent;
-  border-bottom-color: var(--MainColor);
+  border-bottom-color: var(--primary);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   position: relative;
-  box-shadow: 0px 0px 0px 0px var(--MainColor);
+  box-shadow: 0px 0px 0px 0px var(--primary);
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Components_Displayer .SingleComponent_Display::after {
   content: "";
@@ -1315,9 +1303,9 @@ body {
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Components_Displayer .SingleComponent_Display:hover {
-  box-shadow: 4px 4px 0px var(--MainColor);
+  box-shadow: 4px 4px 0px var(--primary);
   transform: translate(-4px, -4px);
-  border-color: var(--MainColor);
+  border-color: var(--primary);
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Components_Displayer .SingleComponent_Display:hover::after {
   transform: translate(4px, 4px);
@@ -1341,7 +1329,7 @@ body {
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Components_Displayer .SingleComponent_Display .product-card__info h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--MainColor);
+  color: var(--primary);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1356,7 +1344,7 @@ body {
   font-weight: 300;
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Components_Displayer .SingleComponent_Display .product-card__info h3 .product-card__price {
-  color: var(--AccentColor);
+  color: var(--secondary);
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -1366,7 +1354,7 @@ body {
   width: 96px;
   height: 48px;
   margin-right: 8px;
-  background-color: var(--AccentColor);
+  background-color: var(--secondary);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 20px 20px;
@@ -1377,7 +1365,7 @@ body {
   display: flex;
   flex-direction: row;
   height: 60px;
-  background-color: var(--GrayColor);
+  background-color: var(--tertiary-Alt);
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Filter_Updater {
   bottom: 0;
@@ -1391,15 +1379,15 @@ body {
   all: unset;
   cursor: pointer;
   padding: 8px 16px;
-  color: var(--WhiteColor);
-  background-color: var(--AccentColor);
+  color: var(--tertiary);
+  background-color: var(--secondary);
   font-size: 0.8rem;
   font-weight: 400;
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
-  box-shadow: 0px 0px 0px var(--MainColor);
+  box-shadow: 0px 0px 0px var(--primary);
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Filter_Updater button:hover {
-  box-shadow: 4px 4px 0px var(--MainColor);
+  box-shadow: 4px 4px 0px var(--primary);
   transform: translate(-4px, -4px);
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Page_Controller {
@@ -1410,7 +1398,7 @@ body {
   padding: 8px;
   width: calc(100% - 256px);
   gap: 4px;
-  color: var(--MainColor);
+  color: var(--primary);
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Page_Controller button {
   all: unset;
@@ -1429,7 +1417,7 @@ body {
 }
 .pc-builder_ComponentsSelector .SelectorContainer .ComponentsSelectorMain .Page_Controller button:not(.Control) {
   padding: 8px 16px;
-  color: var(--MainColor);
+  color: var(--primary);
   font-size: 0.8rem;
   font-weight: 400;
   transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
@@ -1491,5 +1479,5 @@ button {
 }
 
 .line {
-  background: var(--MainColor);
+  background: var(--primary);
 }/*# sourceMappingURL=vanced-default.css.map */
