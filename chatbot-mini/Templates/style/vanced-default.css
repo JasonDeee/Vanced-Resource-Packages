@@ -53,6 +53,9 @@
   border-radius: 50%;
   position: relative;
   overflow: hidden;
+  z-index: 999;
+  pointer-events: all;
+  cursor: pointer;
 }
 .Vx_chat-container .Vx_ChatBotHeader .Vx_ChatBotLogo img {
   width: 100%;
@@ -65,10 +68,26 @@
   width: 32px;
   height: 32px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 .Vx_chat-container .Vx_ChatBotHeader #AdditionInfo svg {
   fill: var(--tertiary);
+}
+.Vx_chat-container .Vx_ChatBotHeader #AdditionInfo .Minimize_Button {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Vx_chat-container .Vx_ChatBotHeader #AdditionInfo .Minimize_Button::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: var(--tertiary);
 }
 .Vx_chat-container .Vx_ChatBotHeader #AdditionInfo::before {
   content: "Chat bot có thể mắc lỗi | Đoạn chat này sẽ được lưu lại. Hãy sử dụng thận trọng, không sử dụng ngôn ngữ không phù hợp.";
@@ -182,13 +201,13 @@
 .Vx_chat-input .Vx_Recommendation_Question p:hover::after {
   transform: translate(4px, 4px);
 }
-.Vx_chat-input::after {
+.Vx_chat-input .Vx_Recommendation_Question::after {
   content: "";
   width: 16%;
   position: absolute;
   right: 0;
   top: 0;
-  height: 64px;
+  height: 100%;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 90%);
   pointer-events: none;
 }

@@ -15,7 +15,6 @@
 
 // ====== DEBUG CONFIGURATION ======
 const DeBug_IsActive = true; // Set to false to disable debug logging
-
 /**
  * Debug logging function for Frontend
  * @param {string} message - Debug message
@@ -55,15 +54,10 @@ const chatContainer = document.getElementById("Vx_chatMessages");
 const messageInput = document.getElementById("Vx_messageInput");
 const sendButton = document.getElementById("Vx_sendButton");
 
-// Khởi tạo khi DOM loaded
-document.addEventListener("DOMContentLoaded", async () => {
-  await initializeChat();
-  setupEventListeners();
-});
-
 /**
  * Khởi tạo chat với MachineID và validation
  */
+
 async function initializeChat() {
   try {
     // Kiểm tra xem MachineID library có sẵn không
@@ -153,7 +147,6 @@ async function initializeChat() {
       }
 
       // Update UI state
-      updateRPDDisplay();
       setInputState(true);
     }
   } catch (error) {
@@ -305,10 +298,6 @@ async function handleSendMessage() {
       const botMessage = { role: "assistant", content: data.response };
       displayMessage(botMessage);
       chatHistory.push(botMessage);
-
-      // Cập nhật RPD remaining
-      rpdRemaining = data.rpdRemaining;
-      updateRPDDisplay();
 
       // Kiểm tra xem có cần human support không
       if (data.needsHumanSupport) {
@@ -597,41 +586,6 @@ function showErrorMessage(message) {
     content: message,
   };
   displayMessage(errorMsg);
-}
-
-/**
- * Cập nhật hiển thị RPD remaining
- */
-function updateRPDDisplay() {
-  // Tạo hoặc cập nhật RPD indicator
-  let rpdIndicator = document.getElementById("rpd-indicator");
-  if (!rpdIndicator) {
-    rpdIndicator = document.createElement("div");
-    rpdIndicator.id = "rpd-indicator";
-    rpdIndicator.style.cssText = `
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: rgba(0,0,0,0.7);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 12px;
-      z-index: 1000;
-    `;
-    document.body.appendChild(rpdIndicator);
-  }
-
-  rpdIndicator.textContent = `Tin nhắn còn lại: ${rpdRemaining}/15`;
-
-  // Thay đổi màu dựa trên số lượng còn lại
-  if (rpdRemaining <= 3) {
-    rpdIndicator.style.background = "rgba(231, 33, 102, 0.9)"; // Red
-  } else if (rpdRemaining <= 7) {
-    rpdIndicator.style.background = "rgba(255, 165, 0, 0.9)"; // Orange
-  } else {
-    rpdIndicator.style.background = "rgba(0, 128, 0, 0.9)"; // Green
-  }
 }
 
 /**
@@ -1043,3 +997,7 @@ window.addEventListener("error", (e) => {
 window.addEventListener("unhandledrejection", (e) => {
   console.error("Unhandled promise rejection:", e.reason);
 });
+// Khởi tạo khi DOM loaded
+// document.addEventListener("DOMContentLoaded", async () => {});
+await initializeChat();
+setupEventListeners();

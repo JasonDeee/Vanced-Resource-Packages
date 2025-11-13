@@ -1,20 +1,35 @@
 /**
- * Vanced Chatbot Generator - Main CDN Script
+ * Vanced Chatbot - UI Generator - Main CDN Script
  * Version: 1.0.0
  *
  * This script is loaded via CDN and injects the chatbot into user's website
- * CDN URL: https://cdn.vanced.media/chatbot-mini/scripts/newest/generator.js
+ * genUI CDN URL: https://cdn.vanced.media/chatbot-mini/scripts/newest/generator.js
  */
 
 // Auto Inject - Tự động generate tất cả thẻ HTML cần thiết dựa trên các Configuration Object
 // window.VancedChatbotConfig = {
-//   workersUrl: "user-input",
-//   chatbotName: "user-input",
-//   avatarUrl: "user-input",
-//   tagline: "user-input",
-//   recommendedMessages: ["msg1", "msg2", "msg3"],
-//   position: { side: "right", bottom: "20px", right: "20px" },
-//   behavior: "minimized", // or "expanded"
+//   workersUrl: "https://vanced-chatbot.caocv-work.workers.dev/",
+//   chatbotName: "Vanced Agency",
+//   avatarUrl:
+//     "https://vanced.media/wp-content/uploads/woocommerce-placeholder.png",
+//   tagline: "Okay Brah",
+//   recommendedMessages: ["Nop ", "Scné", "ewdgewf"],
+//   position: {
+//     side: "right",
+//     desktop: {
+//       bottom: 32,
+//       right: 32,
+//     },
+//     mobile: {
+//       bottom: 12,
+//       right: 12,
+//     },
+//   },
+//   behavior: {
+//     initialState: "minimized",
+//     showOnMobile: true,
+//   },
+//   theme: "vanced-default",
 // };
 
 (function () {
@@ -48,14 +63,86 @@
     "Làm thế nào để liên hệ?",
     "Chính sách bảo hành như thế nào?",
   ];
+  const behavior = config.behavior.initialState || "expanded"; // "minimized" or "expanded"
+
+  // Track if OpusChat.js has been loaded
+  let opusChatLoaded = false;
+
+  /**
+   * Load OpusChat.js script - Main chat logic
+   */
+  function loadOpusChatScript() {
+    if (opusChatLoaded) {
+      console.log("[Vanced Chatbot] OpusChat.js already loaded");
+      return;
+    }
+
+    console.log("[Vanced Chatbot] Loading OpusChat.js...");
+
+    const Chatscript = document.createElement("script");
+    const machineIDscript = document.createElement("script");
+
+    // Swap giữa môi trường dev và host (Nếu location là http://127.0.0.1:5500/)
+    machineIDscript.type = "module";
+    machineIDscript.async = true;
+    Chatscript.type = "module";
+    Chatscript.async = true;
+
+    if (location.hostname === "127.0.0.1") {
+      Chatscript.src = "./OpusChat.js";
+      machineIDscript.src = "./MachineID.js";
+    } else {
+      Chatscript.src =
+        "https://cdn.vanced.media/chatbot-mini/scripts/newest/OpusChat.js";
+      machineIDscript.src =
+        "https://cdn.vanced.media/chatbot-mini/scripts/newest/MachineID.js";
+    }
+
+    machineIDscript.onload = function () {
+      console.log("[Vanced Chatbot] OpusChat.js loaded successfully");
+      document.body.appendChild(Chatscript);
+    };
+
+    machineIDscript.onerror = function () {
+      console.error("[Vanced Chatbot] Failed to load OpusChat.js");
+    };
+
+    document.body.appendChild(machineIDscript);
+    opusChatLoaded = true;
+  }
 
   /**
    * Generate HTML structure - Y HỆT như Simple-ChatBot.html
    */
   function generateChatbotHTML() {
+    const minimizedClass = behavior === "minimized" ? " minimized" : "";
     const html = `
       <div class="Vx_Chatbot">
-        <div class="OpusAgent_Containter">
+         <div
+              class="OpusPC_RequestForRealAssist_Message"
+              style="display: none"
+            >
+              <main class="OpusPC_RequestForRealAssist_Message__Contents">
+                <h2>Chuyển hướng gặp<br />tư vấn viên.</h2>
+                <p>
+                  Không phải mô hình nào cũng hoàn hảo, đôi khi chúng mắc lỗi.
+                  Bạn có thể yêu cầu chat với CSKH hoặc
+                  <font style="color: var(--AccentColor)"
+                    >tiếp tục trò chuyện với Opus</font
+                  >
+                  về lỗi bạn đang gặp phải.
+                </p>
+              </main>
+              <footer class="OpusPC_Slot_Footer">
+                <button class="Opus_RequestForRealAssist_Button">
+                  Gặp tư vấn viên
+                </button>
+                <button class="Opus_StayWithOpus_Button">
+                  Tiếp tục với Opus
+                </button>
+              </footer>
+            </div>
+        <div class="OpusAgent_Containter${minimizedClass}">
           <div class="OpusAgent_ChatInterface Pending">
             <div class="Vx_chat-container" id="Vx_chatContainer">
               <header class="Vx_ChatBotHeader">
@@ -69,22 +156,7 @@
                   ${chatbotName} <span>| ${tagline}</span>
                 </h1>
                 <div id="AdditionInfo">
-                  <svg
-                    width="100%"
-                    height="100%"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7363 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2ZM12 20C10.4178 20 8.87104 19.5308 7.55544 18.6518C6.23985 17.7727 5.21447 16.5233 4.60897 15.0615C4.00347 13.5997 3.84504 11.9911 4.15372 10.4393C4.4624 8.88743 5.22433 7.46197 6.34315 6.34315C7.46197 5.22433 8.88743 4.4624 10.4393 4.15372C11.9911 3.84504 13.5997 4.00346 15.0615 4.60896C16.5233 5.21447 17.7727 6.23984 18.6518 7.55544C19.5308 8.87103 20 10.4177 20 12C20 14.1217 19.1572 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20Z"
-                    />
-                    <path
-                      d="M11.0001 15.3604C11.0012 15.098 11.1053 14.8466 11.2901 14.6604C11.383 14.5666 11.4936 14.4922 11.6155 14.4415C11.7373 14.3907 11.868 14.3646 12.0001 14.3646C12.1321 14.3646 12.2628 14.3907 12.3846 14.4415C12.5065 14.4922 12.6171 14.5666 12.7101 14.6604C12.8948 14.8466 12.9989 15.098 13.0001 15.3604C12.9996 15.5907 12.9197 15.8138 12.7737 15.992C12.6278 16.1702 12.4248 16.2926 12.1991 16.3384C11.9734 16.3843 11.7388 16.3508 11.5349 16.2437C11.331 16.1365 11.1703 15.9623 11.0801 15.7504C11.0275 15.627 11.0003 15.4944 11.0001 15.3604Z"
-                    />
-                    <path
-                      d="M10.499 7.76179C10.9554 7.49847 11.4731 7.36001 12.0001 7.36035C12.7957 7.36035 13.5588 7.67642 14.1214 8.23903C14.684 8.80164 15.0001 9.5647 15.0001 10.3604C15.0001 11.156 14.684 11.9191 14.1214 12.4817C13.5588 13.0443 12.7957 13.3604 12.0001 13.3604C11.7348 13.3604 11.4805 13.255 11.2929 13.0675C11.1054 12.8799 11.0001 12.6256 11.0001 12.3604C11.0001 12.0951 11.1054 11.8408 11.2929 11.6532C11.4805 11.4657 11.7348 11.3604 12.0001 11.3604C12.1754 11.3597 12.3475 11.3129 12.4991 11.2246C12.6506 11.1364 12.7764 11.0099 12.8636 10.8578C12.9508 10.7056 12.9965 10.5332 12.9961 10.3579C12.9956 10.1825 12.9491 10.0103 12.8611 9.85864C12.7731 9.70694 12.6468 9.58105 12.4948 9.49359C12.3428 9.40614 12.1705 9.36019 11.9951 9.36036C11.8197 9.36053 11.6475 9.40682 11.4956 9.49458C11.3438 9.58234 11.2177 9.70848 11.1301 9.86035C10.9917 10.078 10.7746 10.2338 10.524 10.2952C10.2735 10.3565 10.009 10.3187 9.78569 10.1896C9.56239 10.0606 9.3976 9.85021 9.32573 9.6025C9.25387 9.35479 9.2805 9.08889 9.40005 8.86035C9.66352 8.40401 10.0425 8.02512 10.499 7.76179Z"
-                    />
-                  </svg>
+                  <div class="Minimize_Button"></div>
                 </div>
               </header>
               <div class="Vx_chat-messages" id="Vx_chatMessages">
@@ -117,6 +189,63 @@
   }
 
   /**
+   * Setup toggle minimize/expand functionality
+   */
+  function setupAdditionalEvents() {
+    const container = document.querySelector(".OpusAgent_Containter");
+    const logo = document.querySelector(".Vx_ChatBotLogo");
+    const minimizeBtn = document.querySelector(".Minimize_Button"); // Cho Minimize Event
+
+    const recommendationElement = document.querySelector(
+      ".Vx_Recommendation_Question"
+    ); // Cho cuộn phần gợi ý bên trên input người dùng
+
+    if (!container || !logo || !minimizeBtn) {
+      console.error("[Vanced Chatbot] Toggle elements not found");
+      return;
+    }
+
+    // Click logo to expand when minimized
+    logo.addEventListener("click", function () {
+      container.classList.remove("minimized");
+      console.log("[Vanced Chatbot] Expanded");
+
+      // Load OpusChat.js on first click if behavior is "minimized"
+      if (behavior === "minimized" && !opusChatLoaded) {
+        loadOpusChatScript();
+      }
+    });
+
+    // Click minimize button to minimize
+    minimizeBtn.addEventListener("click", function () {
+      console.log("[Vanced Chatbot] Minimized");
+
+      container.classList.add("minimized");
+    });
+
+    // cuộn phần gợi ý input người dùng
+
+    if (recommendationElement) {
+      recommendationElement.addEventListener(
+        "wheel",
+        function (e) {
+          // Ngăn chặn hành vi cuộn dọc mặc định
+          e.preventDefault();
+
+          // Lấy giá trị cuộn dọc và chuyển thành cuộn ngang
+          const scrollAmount = e.deltaY;
+
+          // Áp dụng cuộn ngang
+          this.scrollLeft += scrollAmount;
+        },
+        { passive: false }
+      ); // passive: false để có thể preventDefault
+    }
+
+    console.log("[Vanced Chatbot] Toggle events setup successfully");
+  }
+
+  /**
    * Inject chatbot into DOM
    */
   function injectChatbot() {
@@ -131,8 +260,16 @@
 
     console.log("[Vanced Chatbot] HTML injected successfully");
 
+    // Setup toggle events
+    setupAdditionalEvents();
+
     // Mark as initialized
     window.VancedChatbotInitialized = true;
+
+    // Load OpusChat.js immediately if behavior is "expanded"
+    if (behavior === "expanded") {
+      loadOpusChatScript();
+    }
   }
 
   /**
