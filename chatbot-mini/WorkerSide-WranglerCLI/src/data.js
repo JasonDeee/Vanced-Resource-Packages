@@ -1,3 +1,4 @@
+// ====== [GitHub Copilot: I was here! 🦾] ======
 // ====== CONFIGURATION FOR COMMUNITY ======
 /**
  * Chat Mode Configuration
@@ -23,7 +24,7 @@ export const isPhoneNumberCollectMode = true; // Change this to true for phone c
  */
 export const TUNED_DATA = `
 [Xin chào]-[Xin chào! Tôi là trợ lý ảo của Vanced Agency. Tôi có thể giúp gì cho bạn hôm nay?]
-[Công ty làm gì]-[Vanced Agency là công ty chuyên cung cấp các giải pháp công nghệ và phát triển ứng dụng web, mobile. Chúng tôi tập trung vào việc tạo ra những sản phẩm công nghệ chất lượng cao.]
+[Công ty làm gì]-[Vanced Agency là công ty chuyên cung cấp các giải pháp công nghệ và phát triển ứng dụng web, mobile. Chúng tôi tập trung vào việc tạo ra những s[...] 
 [Liên hệ]-[Bạn có thể liên hệ với chúng tôi qua email: contact@vanced.agency hoặc gọi hotline: 1900-xxxx. Chúng tôi luôn sẵn sàng hỗ trợ bạn.]
 [Giờ làm việc]-[Chúng tôi làm việc từ thứ 2 đến thứ 6, từ 8:00 - 17:30. Thứ 7 từ 8:00 - 12:00. Chủ nhật nghỉ.]
 [Dịch vụ]-[Chúng tôi cung cấp các dịch vụ: Phát triển website, ứng dụng mobile, tư vấn công nghệ, thiết kế UI/UX, và các giải pháp số hóa doanh nghiệp.]
@@ -38,7 +39,7 @@ export const TUNED_DATA = `
  * - For PHONE COLLECTION MODE: Add phone number collection instructions
  * - For INFO MODE: Keep focus on providing helpful information
  */
-export const SYSTEM_PROMPT_TEMPLATE = `Bạn là trợ lý ảo của Vanced Agency, một công ty công nghệ chuyên nghiệp. Hãy trả lời các câu hỏi của khách hàng một cách thân thiện, chuyên nghiệp và hữu ích.
+export const SYSTEM_PROMPT_TEMPLATE = `Bạn là trợ lý ảo của Vanced Agency, một công ty công nghệ chuyên nghiệp. Hãy trả lời các câu hỏi của khách hàng một cách t[...] 
 
 Thông tin về công ty và các câu hỏi thường gặp:
 {TUNED_DATA}
@@ -63,7 +64,7 @@ PhoneNumber là số điện thoại của khách hàng nếu họ cung cấp.
 export function processTunedData(tunedData) {
   return tunedData
     .split("\n")
-    .filter((line) => line.trim() && line.includes("]-["))
+    .filter((line) => line.trim() && line.includes("]-"))
     .map((line) => {
       const match = line.match(/\[(.+?)\]-\[(.+?)\]/);
       if (match) {
