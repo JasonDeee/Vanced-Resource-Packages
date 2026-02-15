@@ -1,0 +1,185 @@
+:root {
+  --vp-bg-color: rgba(255, 255, 255, 0.9);
+  --vp-text-color: #333333;
+  --vp-highlight-color: #007bff;
+  --vp-border-radius: 12px;
+  --vp-border-width: 1px;
+  --vp-border-color: rgba(255, 255, 255, 0.5);
+  --vp-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --vp-backdrop-blur: 8px;
+  --vp-font-family: 'Inter', sans-serif;
+  --vp-width: 320px;
+  --vp-position-bottom: 20px;
+  --vp-position-left: 20px;
+  --vp-padding: 12px 16px;
+  --vp-transition-speed: 0.5s;
+}
+
+.vanced-popup-container {
+  position: fixed;
+  bottom: var(--vp-position-bottom);
+  left: var(--vp-position-left);
+  width: var(--vp-width);
+  background: var(--vp-bg-color);
+  backdrop-filter: blur(var(--vp-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--vp-backdrop-blur));
+  border-radius: var(--vp-border-radius);
+  border: var(--vp-border-width) solid var(--vp-border-color);
+  box-shadow: var(--vp-shadow, 0 8px 32px 0 rgba(31, 38, 135, 0.15));
+  padding: var(--vp-padding);
+  font-family: var(--vp-font-family);
+  color: var(--vp-text-color);
+  z-index: 9999;
+  /* Base State */
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--vp-transition-speed) ease;
+  /* --- Animation Presets --- */
+  /* 1. Slide Up (Default) */
+}
+.vanced-popup-container.anim-slide-up {
+  transform: translateY(20px) scale(0.95);
+}
+.vanced-popup-container.anim-slide-up.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.vanced-popup-container {
+  /* 2. Fade In */
+}
+.vanced-popup-container.anim-fade {
+  transform: none;
+}
+.vanced-popup-container.anim-fade.active {
+  opacity: 1;
+}
+.vanced-popup-container {
+  /* 3. Zoom In */
+}
+.vanced-popup-container.anim-zoom {
+  transform: scale(0.5);
+}
+.vanced-popup-container.anim-zoom.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.vanced-popup-container {
+  /* 4. Slide Side (Good for corners) */
+}
+.vanced-popup-container.anim-slide-side {
+  transform: translateX(-20px); /* Default for Left */
+}
+.vanced-popup-container.anim-slide-side.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+.vanced-popup-container {
+  /* Active state common override if needed, but per-preset is better */
+}
+.vanced-popup-container.active {
+  pointer-events: auto;
+}
+
+/* Adjust Slide Side based on position ?? 
+   Ideally, we use specific classes or just simple presets. 
+   Let's keep it simple.
+*/
+.vanced-popup-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.vanced-popup-image {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+}
+.vanced-popup-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+
+.vanced-popup-text {
+  flex-grow: 1;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.vanced-popup-text p {
+  margin: 0;
+  font-weight: 500;
+}
+.vanced-popup-text .vanced-highlight {
+  font-weight: 700;
+  color: var(--vp-highlight-color);
+}
+.vanced-popup-text .vanced-time-ago {
+  display: block;
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* --- Global Theme Variables (Moved from index.html) --- */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* --- Webkit Slider Styling (Moved from index.html) --- */
+input[type=range] {
+  height: 0.5rem;
+  background-color: hsl(var(--secondary));
+  border-radius: var(--radius);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background-color: hsl(var(--primary));
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm default */
+  margin-top: 0;
+}/*# sourceMappingURL=style.css.map */
